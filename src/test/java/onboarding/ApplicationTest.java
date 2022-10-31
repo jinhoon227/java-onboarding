@@ -258,6 +258,44 @@ class ApplicationTest {
             List<String> result = List.of("jason@email.com", "jm@email.com", "mj@email.com");
             assertThat(Problem6.solution(forms)).isEqualTo(result);
         }
+
+        @Test
+        void case2() {
+            // 모든 인원이 중복
+            List<List<String>> forms = List.of(
+                    List.of("onepiece@email.com", "원피수"),
+                    List.of("jason@email.com", "제이슨"),
+                    List.of("onepisu@email.com", "원피수"),
+                    List.of("m@email.com", "엠제이"),
+                    List.of("suoffnepi@email.com", "수원피")
+            );
+            List<String> result = List.of("jason@email.com", "m@email.com", "onepiece@email.com",
+                    "onepisu@email.com", "suoffnepi@email.com");
+            assertThat(Problem6.solution(forms)).isEqualTo(result);
+        }
+
+        @Test
+        void case3() {
+            // 최소인원
+            List<List<String>> forms = List.of(
+                    List.of("jason@email.com", "자")
+
+            );
+            List<String> result = List.of();
+            assertThat(Problem6.solution(forms)).isEqualTo(result);
+        }
+
+        @Test
+        void case4() {
+            // 한글자 중복 체크 안해야함
+            List<List<String>> forms = List.of(
+                    List.of("jason@email.com", "자"),
+                    List.of("jaswon@email.com", "자")
+
+            );
+            List<String> result = List.of();
+            assertThat(Problem6.solution(forms)).isEqualTo(result);
+        }
     }
 
     @Nested
