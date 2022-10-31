@@ -36,9 +36,64 @@ class ApplicationTest {
 
         @Test
         void case4() {
+            // 초과된 페이지번호 예외처리
             List<Integer> pobi = List.of(451, 452);
             List<Integer> crong = List.of(211, 212);
             int result = -1;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case5() {
+            // 왼쪽페이지가 짝수일때 예외처리
+            List<Integer> pobi = List.of(150, 151);
+            List<Integer> crong = List.of(211, 212);
+            int result = -1;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case6() {
+            // 왼쪽페이지가 마지막 페이지를 펼쳤을때 예외처리
+            List<Integer> pobi = List.of(399, 400);
+            List<Integer> crong = List.of(211, 212);
+            int result = -1;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case7() {
+            // 곱연산 맥스값으로 크롱이 이겼을때
+            List<Integer> pobi = List.of(199, 200);
+            List<Integer> crong = List.of(299, 300);
+            int result = 2;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case8() {
+            // 서로 다른 맥스값(하나는 곱연산, 하나는 더하기연산)으로 무승부가 날경우
+            List<Integer> pobi = List.of(311, 312);
+            List<Integer> crong = List.of(113, 114);
+            int result = 0;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case9() {
+            // 더하기연산 맥스값으로 크롱이 이겼을때
+            List<Integer> pobi = List.of(311, 312);
+            List<Integer> crong = List.of(115, 116);
+            int result = 2;
+            assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
+        }
+
+        @Test
+        void case10() {
+            // 서로 같은페이지를 펼쳤을때 무승부가 날경우
+            List<Integer> pobi = List.of(311, 312);
+            List<Integer> crong = List.of(311, 312);
+            int result = 0;
             assertThat(Problem1.solution(pobi, crong)).isEqualTo(result);
         }
     }
