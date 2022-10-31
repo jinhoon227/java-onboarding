@@ -113,6 +113,30 @@ class ApplicationTest {
             String result = "";
             assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
         }
+
+        @Test
+        void case3() {
+            // 3개 이상 연속되는 문자열 중복처리
+            String cryptogram = "ooooo";
+            String result = "";
+            assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
+        }
+
+        @Test
+        void case4() {
+            // 중복제거 순서 확인, 중복되는 문자를 한번에 처리하는 과정이라면 z가 남을것.
+            String cryptogram = "zozzoooxzzzxo";
+            String result = "z";
+            assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
+        }
+
+        @Test
+        void case5() {
+            // 한글자 처리 테스트
+            String cryptogram = "z";
+            String result = "z";
+            assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
+        }
     }
 
     @Nested
