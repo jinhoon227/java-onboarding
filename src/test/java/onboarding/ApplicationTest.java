@@ -180,6 +180,27 @@ class ApplicationTest {
             String result = "R olev blf";
             assertThat(Problem4.solution(word)).isEqualTo(result);
         }
+
+        void case2() {
+            // 연속된 특수문자(공백)
+            String word = "Hello  Everyone!";
+            String result = "Svool  Veviblmv!";
+            assertThat(Problem4.solution(word)).isEqualTo(result);
+        }
+
+        void case3() {
+            // 여러종류 특수문자 테스트
+            String word = "안녕ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#!#  123";
+            String result = "안녕ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba !@#!#  123";
+            assertThat(Problem4.solution(word)).isEqualTo(result);
+        }
+
+        void case4() {
+            // 최소글자 테스트
+            String word = "a";
+            String result = "z";
+            assertThat(Problem4.solution(word)).isEqualTo(result);
+        }
     }
 
     @Nested
