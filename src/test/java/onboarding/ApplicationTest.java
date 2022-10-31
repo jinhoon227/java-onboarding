@@ -319,6 +319,7 @@ class ApplicationTest {
 
     @Test
     void case2() {
+        // 들어온 친구가 둘다 아는친구있때
         String user = "mrko";
         List<List<String>> friends = List.of(
                 List.of("mrko", "jun"),
@@ -330,6 +331,44 @@ class ApplicationTest {
         );
         List<String> visitors = List.of("bedi", "bedi", "donut", "bedi", "shakevan");
         List<String> result = List.of("andole", "bedi");
+        assertThat(Problem7.solution(user, friends, visitors)).isEqualTo(result);
+    }
+
+    @Test
+    void case3() {
+        // 점수가 같을때 이름순으로 정렬되는지
+        String user = "mrko";
+        List<List<String>> friends = List.of(
+                List.of("mrko", "jun"),
+                List.of("bedi", "jun"),
+                List.of("bedi", "donut"),
+                List.of("donut", "jun"),
+                List.of("donut", "mrko"),
+                List.of("shakevan", "zandole"),
+                List.of("shakevan", "jun"),
+                List.of("shakevan", "mrko"),
+                List.of("jun", "zandole")
+        );
+        List<String> visitors = List.of("donut", "shakevan");
+        List<String> result = List.of("bedi", "zandole");
+        assertThat(Problem7.solution(user, friends, visitors)).isEqualTo(result);
+    }
+
+    @Test
+    void case4() {
+        // 5명 초과시
+        String user = "andole";
+        List<List<String>> friends = List.of(
+                List.of("andole", "jun"),
+                List.of("donut", "jun"),
+                List.of("donut", "shakevan"),
+                List.of("shakevan", "andole"),
+                List.of("shakevan", "jun"),
+                List.of("shakevan", "bedi"),
+                List.of("anne", "jun")
+        );
+        List<String> visitors = List.of("donut", "mrko", "peter", "sam");
+        List<String> result = List.of("donut", "anne", "bedi", "mrko", "peter");
         assertThat(Problem7.solution(user, friends, visitors)).isEqualTo(result);
     }
 }
